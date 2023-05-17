@@ -8,10 +8,14 @@ fn main() {
         sgf_files.push(file.unwrap().display().to_string());
     }
 
+    let mut output_data: Vec<String> = Vec::new(); // content written to json file
+
     // print the content of each sgf file
     for file in sgf_files {
         let file_contents =
             fs::read_to_string(file).expect("Failed to read file");
-        println!("-----\n{file_contents}\n-----\n");
+        output_data.push(file_contents.to_string());
     }
+
+    fs::write("./src/output/problems.json", output_data.join("\n")).expect("Unable to write file");
 }
