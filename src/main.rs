@@ -26,16 +26,17 @@ fn main() {
         let mut obj = concat!("    {\n", r#"      "id": "#).to_string();
         obj.push_str(&index.to_string());
         obj.push_str(",\n");
-        obj.push_str(r#"      "problem": "#);
-        obj.push_str(&problem);
+        obj.push_str(r#"      "problem": ""#);
+        obj.push_str(&problem.replace('\n', "").replace('\r', ""));
+        obj.push_str(r#"""#);
         obj.push_str("\n    },");
         formatted_output_data.push(obj.to_owned());
     }
-    formatted_output_data.push("  ],\n}".to_owned()); // last line of json
+    formatted_output_data.push("  ]\n}".to_owned()); // last line of json
 
     fs::write(
         "./src/output/problems.json",
-        formatted_output_data.join("\n"),
+        formatted_output_data.join("\n").replace("    },\n  ]", "    }\n  ]"),
     )
     .expect("Unable to write file");
 }
