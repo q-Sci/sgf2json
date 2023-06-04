@@ -5,6 +5,7 @@ The input SGF files should look like the following example:
 ```
 (;GM[1]FF[4]SZ[19]
 CP[Xuanxuan Qijing Problems]
+BR[10k]WR[10k]
 
 AB[il][kl][kj][hj][ii]
 AW[jk]
