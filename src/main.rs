@@ -29,9 +29,6 @@ fn main() {
         obj.push_str(r#"      "rank": ""#);
         obj.push_str(r#"""#);
         obj.push_str(",\n");
-        obj.push_str(r#"      "player": ""#);
-        obj.push_str(r#"""#);
-        obj.push_str(",\n");
         obj.push_str(r#"      "problem": ""#);
         obj.push_str(&problem.replace('\n', "").replace('\r', ""));
         obj.push_str(r#"""#);
